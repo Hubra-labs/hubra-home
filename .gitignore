@@ -12,6 +12,12 @@
 /.next/
 /out/
 
+.agent/
+.agents/
+.claude/
+hubra-home-design-revamp-v2.md
+skills-lock.json
+
 # production
 /build
 
