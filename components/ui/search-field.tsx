@@ -56,7 +56,7 @@ export function SearchField({
   size = "sm",
   variant = "flat",
   isClearable = true,
-  autoFocus = false,
+  autoFocus: _autoFocus = false,
   disabled = false,
 }: SearchFieldProps) {
   const [internalValue, setInternalValue] = useState(controlledValue || "");

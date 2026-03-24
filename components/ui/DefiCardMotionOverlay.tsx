@@ -9,7 +9,6 @@ const LINE_THICKNESS_RATIO = 0.002; // 0.2% of container width
 const PINK_LINE_LENGTH_RATIO = 0.1; // 10% of container width
 const ANIMATION_DURATION = 2; // seconds
 const SATELLITE_ARC_LENGTH = 20; // degrees
-const SATELLITE_COLOR = "#B84794";
 const SATELLITE_DURATION = 4; // seconds
 const HEXAGON_SIZE_RATIO = 0.22; // 22% of container width
 

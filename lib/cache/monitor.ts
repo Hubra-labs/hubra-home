@@ -83,7 +83,7 @@ export async function getCacheStats(): Promise<CacheStats> {
         cacheMissLatency: "200-400ms",
       },
     };
-  } catch (error) {
+  } catch (_error) {
     // Return error state
     return {
       redis: {
