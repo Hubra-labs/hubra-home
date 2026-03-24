@@ -111,7 +111,11 @@ export function MobileListLayout<T extends MobileListItem>({
               aria-label="Item details"
               className="cursor-pointer"
               role="button"
+              tabIndex={0}
               onClick={() => handleItemClick(item)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") handleItemClick(item);
+              }}
               onMouseEnter={() => handleItemHover(item)}>
               {renderItem(item)}
             </div>
@@ -125,7 +129,11 @@ export function MobileListLayout<T extends MobileListItem>({
             aria-label="Item details"
             className="flex items-center justify-between py-2 transition-colors cursor-pointer"
             role="button"
+            tabIndex={0}
             onClick={() => handleItemClick(item)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") handleItemClick(item);
+            }}
             onMouseEnter={() => handleItemHover(item)}>
             {/* Left Column: Logo, Name, Subtitle */}
             <div className="flex items-center gap-3 flex-1 min-w-0">

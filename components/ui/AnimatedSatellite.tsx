@@ -2,13 +2,10 @@
 import { useAnimationFrame } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import { useWindowSize } from "@/lib/useWindowSize";
-
 export function AnimatedSatelliteOrbit() {
   // The SVG path from globe.svg
   const pathData =
     "M496.164 647.036C496.164 953.573 247.493 1202.07 -59.2566 1202.07C-366.007 1202.07 -614.677 953.573 -614.677 647.036C-614.677 340.499 -366.007 92.002 -59.2566 92.002C247.493 92.002 496.164 340.499 496.164 647.036Z";
-  const { isMobile } = useWindowSize();
   const svgWidth = 660;
   const svgHeight = 304;
   const [length, setLength] = useState(0);

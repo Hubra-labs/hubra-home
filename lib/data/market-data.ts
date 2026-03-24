@@ -228,7 +228,7 @@ async function fetchMarketDataInternal(
 
     // Clean internal metadata before returning
     if (result) {
-      const { _tokens, ...cleanResult } = result as any;
+      const { _tokens: _unused, ...cleanResult } = result as any;
 
       return cleanResult as MarketDataResult;
     }

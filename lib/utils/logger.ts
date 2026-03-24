@@ -33,21 +33,25 @@ class Logger {
 
   debug(message: string, ...args: any[]) {
     if (isDevelopment) {
+      // eslint-disable-next-line no-console
       console.debug(...this.format(LogLevel.DEBUG, message, ...args));
     }
   }
 
   info(message: string, ...args: any[]) {
     if (isDevelopment) {
+      // eslint-disable-next-line no-console
       console.log(...this.format(LogLevel.INFO, message, ...args));
     }
   }
 
   warn(message: string, ...args: any[]) {
+    // eslint-disable-next-line no-console
     console.warn(...this.format(LogLevel.WARN, message, ...args));
   }
 
   error(message: string, ...args: any[]) {
+    // eslint-disable-next-line no-console
     console.error(...this.format(LogLevel.ERROR, message, ...args));
   }
 }
