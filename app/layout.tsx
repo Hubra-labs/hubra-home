@@ -9,7 +9,8 @@ import dynamic from "next/dynamic";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { Navbar } from "@/components/navbar";
+import { CardNav, type CardNavItem } from "@/components/CardNav";
+import { AuroraBackground } from "@/components/AuroraBackground";
 import { StakeSolButton } from "@/components/stake-sol-button";
 import { ORGANIZATION_JSON_LD_STRING, WEBSITE_JSON_LD_STRING, WEB_APPLICATION_JSON_LD_STRING } from "@/lib/utils/structured-data";
 import { fontSans } from "@/config/fonts";
@@ -91,6 +92,38 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
+const cardNavItems: CardNavItem[] = [
+  {
+    label: "Explore",
+    bgColor: "#161411",
+    textColor: "#ffffff",
+    links: [
+      { label: "Tokens", href: "/tokens", ariaLabel: "Solana tokens" },
+      { label: "DeFi", href: "/defi", ariaLabel: "DeFi analytics" },
+      { label: "Stats", href: "/stats", ariaLabel: "Platform stats" },
+    ],
+  },
+  {
+    label: "Resources",
+    bgColor: "#1b1915",
+    textColor: "#ffffff",
+    links: [
+      { label: "Docs", href: siteConfig.links.docs, external: true, ariaLabel: "Documentation" },
+      { label: "Blog", href: "/blog", ariaLabel: "Hubra blog" },
+    ],
+  },
+  {
+    label: "Community",
+    bgColor: "#201d18",
+    textColor: "#ffffff",
+    links: [
+      { label: "X / Twitter", href: siteConfig.links.twitter, external: true, ariaLabel: "Hubra on X" },
+      { label: "Discord", href: siteConfig.links.discord, external: true, ariaLabel: "Hubra on Discord" },
+      { label: "GitHub", href: siteConfig.links.github, external: true, ariaLabel: "Hubra on GitHub" },
+    ],
+  },
+];
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning className={clsx(fontSans.variable)} lang="en">
@@ -122,9 +155,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Providers themeProps={{ attribute: "class" }}>
-          <div className="relative flex flex-col items-center">
-            <Navbar stakeButton={<StakeSolButton />} />
-            <main className="w-full flex flex-col scroll-mt-24" id="main" tabIndex={-1}>
+          <AuroraBackground />
+          <div className="relative flex flex-col items-center" style={{ zIndex: 1 }}>
+            <CardNav
+              cta={{ label: "Launch App", href: "/link" }}
+              items={cardNavItems}
+              logo="/logo.png"
+              logoAlt="Hubra"
+              rightContent={<StakeSolButton />}
+              wordmark="Hubra"
+            />
+            <main className="w-full flex flex-col scroll-mt-24 pt-24 md:pt-28" id="main" tabIndex={-1}>
               {children}
             </main>
             <div className="sr-only">

@@ -1,12 +1,15 @@
 import { Metadata } from "next";
 
-import { HeroSection } from "@/components/HeroSection";
-import { MainContentSection } from "@/components/MainContent";
+import { HeroHorus } from "@/components/home/HeroHorus";
+import { ProductGrid } from "@/components/home/ProductGrid";
+import { ForEveryone } from "@/components/home/ForEveryone";
+import { MetricsSection } from "@/components/home/MetricsSection";
+import { HomeFooter } from "@/components/home/HomeFooter";
 import { siteConfig } from "@/config/site";
 
 const title = "Hubra - Trade, stake, and earn with the best yields - never miss a trend, all in one.";
 const description =
-  "Hubra steps directly into this gap by blending TradFi-level usability with DeFi principles. Gasless operations, curated earning opportunities from top Solana protocols like Kamino, Jupiter, and Lulo; multi-wallet visibility under a single account; and selective, quality-first integrations to reduce risk and noise";
+  "Hubra steps directly into this gap by blending TradFi-level usability with DeFi principles. Gasless operations, curated earning opportunities from top Solana protocols like Kamino and Jupiter; multi-wallet visibility under a single account; and selective, quality-first integrations to reduce risk and noise";
 const ogDescription =
   "Your Solana all-in-one portal to the decentralized world. Track tokens, Earn yields, DeFi protocols, and market analytics with CEX-grade experience.";
 const canonical = siteConfig.domain;
@@ -74,12 +77,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="w-full flex flex-col items-center justify-center gap-20">
+      <section className="w-full flex flex-col items-center justify-center gap-24 md:gap-36">
         <header className="sr-only">
-          <h1>Hubra - Trade, stake, and earn with the best yields on Solana</h1>
+          <h1>Hubra - AI-powered DeFi super-app on Solana</h1>
         </header>
-        <HeroSection />
-        <MainContentSection />
+        <HeroHorus />
+        <ProductGrid />
+        <ForEveryone />
+        <MetricsSection />
+        <HomeFooter />
       </section>
     </>
   );

@@ -1,0 +1,190 @@
+.masonry-list {
+  position: relative;
+  width: 100%;
+}
+
+.masonry-item-wrapper {
+  position: absolute;
+  will-change: transform, width, height, opacity;
+  padding: 12px;
+  top: 0;
+  left: 0;
+}
+
+.masonry-item-wrapper > .masonry-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: default;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.012) 60%, rgba(255, 255, 255, 0.02) 100%),
+    rgba(8, 9, 22, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 20px 40px -24px rgba(0, 0, 0, 0.6);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+}
+
+.masonry-item-wrapper:hover > .masonry-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.03) 100%),
+    rgba(12, 13, 30, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 28px 50px -24px rgba(0, 0, 0, 0.75);
+}
+
+.masonry-card .masonry-glow {
+  position: absolute;
+  top: -35%;
+  left: -25%;
+  width: 220px;
+  height: 220px;
+  border-radius: 9999px;
+  filter: blur(56px);
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.masonry-item-wrapper:hover .masonry-glow {
+  opacity: 0.75;
+}
+
+.masonry-card .masonry-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #daa520;
+  font-size: 30px;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.masonry-item-wrapper:hover .masonry-card .masonry-icon {
+  transform: translateY(-2px);
+}
+
+.masonry-card .masonry-index {
+  position: relative;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.22);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.masonry-card .masonry-title {
+  position: relative;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: 22px;
+}
+
+.masonry-card .masonry-body {
+  position: relative;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .masonry-item-wrapper {
+    padding: 8px;
+  }
+  .masonry-item-wrapper > .masonry-card {
+    padding: 14px 16px;
+  }
+  .masonry-card .masonry-icon {
+    font-size: 26px;
+  }
+  .masonry-card .masonry-title {
+    font-size: 18px;
+  }
+  .masonry-card .masonry-body {
+    font-size: 12.5px;
+  }
+}
+
+.masonry-netflix-wrap {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.masonry-list--netflix {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 4px 16px 4px;
+  scroll-padding-inline: 16px;
+  height: auto;
+  overscroll-behavior-x: contain;
+}
+
+.masonry-scroll-indicator {
+  position: relative;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 14px auto 4px;
+  width: clamp(80px, 28vw, 148px);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.masonry-scroll-indicator__thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 18%;
+  border-radius: inherit;
+  background: rgba(218, 165, 32, 0.9);
+  transition: left 80ms linear;
+}
+
+.masonry-list--netflix::-webkit-scrollbar {
+  display: none;
+}
+
+.masonry-list--netflix::after {
+  content: "";
+  flex: 0 0 4px;
+}
+
+.masonry-item-wrapper--netflix {
+  position: static;
+  flex: 0 0 auto;
+  width: clamp(240px, 72vw, 320px);
+  height: 260px;
+  padding: 0;
+  scroll-snap-align: start;
+}
+
+.masonry-item-wrapper--netflix > .masonry-card {
+  height: 100%;
+  padding: 18px 20px;
+}

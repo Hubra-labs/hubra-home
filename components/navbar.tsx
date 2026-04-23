@@ -16,7 +16,6 @@ import {
   DropdownItem,
 } from "@heroui/react";
 import NextLink from "next/link";
-import NextImage from "next/image";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { track } from "@vercel/analytics";
 
@@ -70,12 +69,12 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
 
   return (
     <HeroUINavbar
-      className="backdrop-blur-md bg-black/20 border-b border-white/10"
+      className="backdrop-blur-xl bg-[#0a0a14]/70 border-b border-white/[0.06] supports-[backdrop-filter]:bg-[#0a0a14]/55"
       classNames={{
         base: "z-[60] relative",
         wrapper: "max-w-7xl mx-auto px-4 md:px-6",
         menuItem: "text-white",
-        menu: "text-white bg-black/90 backdrop-blur-md z-[60]",
+        menu: "text-white bg-[#0a0a14]/95 backdrop-blur-xl z-[60]",
         item: "text-white",
       }}
       isMenuOpen={isMenuOpen}
@@ -85,7 +84,7 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
       {/* Brand/Logo */}
       <NavbarBrand as="li" className="gap-3 max-w-fit md:mr-16">
         <NextLink className="flex justify-start items-center gap-2" href="/">
-          <NextImage priority alt="Hubra" className="rounded-none" height={24} src="/logo.png" width={24} />
+          {/* <NextImage priority alt="Hubra" className="rounded-none" height={24} src="/image/logo.svg" width={24} /> */}
           <p className="font-bold text-white text-lg">Hubra</p>
         </NextLink>
       </NavbarBrand>
@@ -105,10 +104,10 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
                     shouldBlockScroll={false}>
                     <DropdownTrigger>
                       <Button
-                        className={`font-medium text-sm transition-colors duration-200 ${
+                        className={`font-medium text-sm rounded-full px-4 transition-all duration-200 ${
                           hasActiveChild(item.navItems)
-                            ? "text-primary border-b-2 border-primary rounded-none hover:rounded-xl"
-                            : "text-[#797B92] hover:text-white"
+                            ? "!text-primary !bg-primary/[0.12] data-[hover=true]:!bg-primary/[0.20]"
+                            : "!text-white/60 data-[hover=true]:!text-white data-[hover=true]:!bg-white/[0.06]"
                         }`}
                         endContent={<ChevronDown size={16} />}
                         variant="light">
@@ -117,16 +116,16 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
                     </DropdownTrigger>
                     <DropdownMenu
                       aria-label={`${item.label} menu`}
-                      className="bg-black/90 backdrop-blur-md border border-white/10"
+                      className="bg-[#0a0a14]/95 backdrop-blur-xl border border-white/[0.08] rounded-xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] p-1"
                       style={{ zIndex: 55 }}>
                       {item.navItems.map((child) => (
                         <DropdownItem
                           key={child.href}
                           as={NextLink}
-                          className={`transition-colors duration-200 ${
+                          className={`rounded-lg transition-all duration-200 ${
                             isActive(child.href)
-                              ? "text-white bg-white/20 font-semibold"
-                              : "text-gray-300 hover:bg-white/10 hover:text-white"
+                              ? "text-primary bg-primary/[0.12] font-semibold data-[hover=true]:bg-primary/[0.18] data-[hover=true]:text-primary"
+                              : "text-white/70 data-[hover=true]:bg-white/[0.06] data-[hover=true]:text-white"
                           }`}
                           href={child.href}
                           startContent={null}>
@@ -139,10 +138,10 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
                   item.href && (
                     <Button
                       as={NextLink}
-                      className={`font-medium text-sm transition-colors duration-200 ${
+                      className={`font-medium text-sm rounded-full px-4 transition-all duration-200 ${
                         isActive(item.href)
-                          ? "text-primary border-b-2 border-primary rounded-none hover:rounded-xl"
-                          : "text-[#797B92] hover:text-white"
+                          ? "!text-primary !bg-primary/[0.12] data-[hover=true]:!bg-primary/[0.20]"
+                          : "!text-white/60 data-[hover=true]:!text-white data-[hover=true]:!bg-white/[0.06]"
                       }`}
                       href={item.href}
                       variant="light">
@@ -170,8 +169,7 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
           {stakeButton ?? (
             <Button
               as={Link}
-              className="text-sm font-medium"
-              color="primary"
+              className="text-sm font-medium !text-primary !bg-primary/[0.10] data-[hover=true]:!bg-primary/[0.20] border border-primary/25 transition-all duration-200"
               href="https://hubra.app/earn/stake"
               radius="full"
               variant="light"
@@ -186,7 +184,7 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
         <NavbarItem className="hidden lg:flex">
           <Button
             as={Link}
-            className="text-sm font-medium text-black bg-white hover:bg-gray-100 transition-colors duration-200"
+            className="text-sm font-semibold !text-black !bg-white data-[hover=true]:!bg-white/90 data-[hover=true]:shadow-[0_10px_30px_-12px_rgba(255,255,255,0.5)] transition-all duration-200"
             endContent={isMounted ? <ArrowRight size={14} /> : null}
             href="/link"
             radius="full"
@@ -214,25 +212,28 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu className="bg-black/90 backdrop-blur-md border-t border-white/10">
-        <div className="flex flex-col">
+      <NavbarMenu className="bg-[#0a0a14]/95 backdrop-blur-xl border-t border-white/[0.06]">
+        <div className="flex flex-col gap-1 px-2">
           {siteConfig.navMenuItems.map(
             (item, index) =>
               item.show && (
                 <NavbarMenuItem key={`${item.label}-${index}`}>
                   {item.navItems ? (
-                    <div className="space-y-2">
-                      <div className={`text-lg font-semibold px-4 py-2 ${hasActiveChild(item.navItems) ? "text-white" : "text-gray-400"}`}>
+                    <div className="space-y-1.5">
+                      <div
+                        className={`text-xs font-semibold uppercase tracking-[0.18em] px-3 py-2 ${
+                          hasActiveChild(item.navItems) ? "text-primary" : "text-white/35"
+                        }`}>
                         {item.label}
                       </div>
                       <div className="space-y-1">
                         {item.navItems.map((child) => (
                           <NextLink
                             key={child.href}
-                            className={`w-full text-left flex items-center gap-3 px-6 py-3 transition-colors duration-200 ${
+                            className={`w-full text-left flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                               isActive(child.href)
-                                ? "text-white bg-white/20 font-semibold border-l-4 border-white"
-                                : "text-gray-300 hover:text-white hover:bg-white/10"
+                                ? "text-primary bg-primary/[0.12] font-semibold"
+                                : "text-white/70 hover:text-white hover:bg-white/[0.06]"
                             }`}
                             href={child.href}
                             onClick={() => setIsMenuOpen(false)}>
@@ -244,10 +245,10 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
                   ) : (
                     item.href && (
                       <NextLink
-                        className={`w-full text-left block py-3 text-lg transition-colors duration-200 ${
+                        className={`w-full text-left block py-3 px-4 text-lg rounded-xl transition-all duration-200 ${
                           isActive(item.href)
-                            ? "text-primary bg-white/20 font-semibold border-l-4 border-primary pl-4"
-                            : "text-gray-300 hover:text-white hover:bg-white/10 pl-4"
+                            ? "text-primary bg-primary/[0.12] font-semibold"
+                            : "text-white/70 hover:text-white hover:bg-white/[0.06]"
                         }`}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}>
@@ -259,13 +260,12 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
               )
           )}
 
-          {/* Mobile Stake SOL Button (server-rendered with APY) */}
-          <div className="pt-4">
+          {/* Mobile Stake SOL Button */}
+          <div className="pt-5">
             {stakeButton ?? (
               <Button
                 as={Link}
-                className="w-fit text-sm font-medium"
-                color="primary"
+                className="w-fit text-sm font-medium text-primary bg-primary/[0.10] hover:bg-primary/[0.18] border border-primary/20 transition-all duration-200"
                 href="https://hubra.app/earn/stake"
                 radius="full"
                 variant="light"
@@ -276,10 +276,10 @@ export const Navbar = ({ stakeButton }: NavbarProps) => {
           </div>
 
           {/* Mobile Launch App Button */}
-          <div className="pt-4">
+          <div className="pt-3">
             <Button
               as={NextLink}
-              className="w-full text-sm font-medium text-black bg-white hover:bg-gray-100 transition-colors duration-200"
+              className="w-full text-sm font-semibold text-black bg-white hover:bg-white/90 transition-all duration-200"
               endContent={isMounted ? <ArrowRight size={14} /> : null}
               href="/link"
               radius="full"
