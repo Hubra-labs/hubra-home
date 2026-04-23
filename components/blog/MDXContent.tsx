@@ -62,8 +62,8 @@ export function MDXContent({ code, components: customComponents = {} }: MDXConte
  */
 const PROSE_CLASSES = [
   "prose prose-invert prose-lg max-w-none",
-  "prose-headings:text-white prose-headings:font-bold",
-  "prose-h1:text-4xl prose-h2:text-3xl prose-h2:border-b prose-h2:border-gray-800 prose-h2:pb-2 prose-h3:text-2xl",
+  "prose-headings:text-white prose-headings:font-bold prose-headings:font-display prose-headings:tracking-tight",
+  "prose-h1:text-4xl prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-5 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-3",
   "prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6",
   "prose-a:text-primary-500 prose-a:underline hover:prose-a:text-primary-400 hover:prose-a:no-underline",
   "prose-strong:text-white prose-strong:font-bold",

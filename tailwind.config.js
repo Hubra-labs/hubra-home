@@ -11,7 +11,8 @@ const config = {
     extend: {
       // Font Families
       fontFamily: {
-        sans: ["Geist", "Inter", "sans-serif"],
+        sans: ["var(--font-sans)", "Geist", "sans-serif"],
+        display: ["var(--font-display)", "Manrope", "sans-serif"],
       },
 
       // Typography Scale

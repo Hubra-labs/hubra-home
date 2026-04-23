@@ -1,0 +1,107 @@
+---
+title: "How Hubra Earn Works: Automated Stablecoin Yield on Solana"
+description: "Hubra Earn puts your stablecoins in the highest-paying Solana lending pool automatically. Zero fees, non-custodial, always liquid. Here's how it works."
+excerpt: "Hubra Earn routes your stablecoins to the highest-paying lending pool on Solana automatically. No rate hunting, no claiming, no lockups. Here's what it is and how it works."
+date: "2026-04-23"
+lastUpdated: "2026-04-23"
+author: "Hubra Team"
+coverImage: "/blog/hubra-earn.png"
+featured: true
+popular: true
+keywords:
+  - Solana stablecoin yield
+  - Hubra Earn
+  - USDC yield Solana
+  - automated yield aggregator Solana
+  - non-custodial DeFi
+  - how Hubra Earn works
+  - stablecoin lending Solana
+tags:
+  - Earn
+  - DeFi
+  - Stablecoins
+  - Product
+category: "Product"
+---
+
+If you&apos;ve tried to earn stablecoin yield on Solana manually, you already know the routine. Open Kamino. Check the USDC rate. Open Jupiter. Compare. Move funds. Check again next week. Move again.
+
+It&apos;s tedious, and it only pays off if you actually keep doing it. Miss a rate shift by a day and your APY gets cut in half.
+
+Hubra Earn is our answer to that loop. You deposit USDC, USDT, USDS, USDG, or USD1, and the vault routes your funds to the highest-paying whitelisted lending pool at any given moment. When rates move, your funds move. You do nothing. No claiming, no fees.
+
+---
+
+## Where the yield comes from
+
+Hubra Earn doesn&apos;t farm, doesn&apos;t use leverage, and doesn&apos;t run any perp or delta-neutral strategy. It lends.
+
+Your stablecoin goes into one of two whitelisted lending markets:
+
+1. Kamino - Solana&apos;s largest lending protocol
+2. Jupiter - Solana&apos;s fast-growing lending market
+
+Borrowers on these platforms pay interest. That&apos;s the yield. A rebalancer watches both markets and shifts your capital the moment a better rate opens up. You never make the call. You never pay gas on the rebalance.
+
+The rebalancer code is open-source, and it can only route to protocols on the vault&apos;s whitelist. Nobody at Hubra can point funds at an unaudited pool, not even us.
+
+---
+
+## How your balance grows
+
+When you deposit 1,000 USDC, you don&apos;t get 1,000 USDC sitting in a vault. You receive raUSDC, a receipt token whose exchange rate to USDC goes up as yield accrues. The Hubra app handles the math, so you see your balance in USDC terms and the number goes up.
+
+This is the same mechanic Aave uses with aTokens and Compound uses with cTokens. Boring and well-understood, which is why we picked it. Compounding is automatic because the exchange rate *is* the yield. There&apos;s nothing to claim and nothing to reinvest.
+
+If you look at your wallet directly in Phantom or Backpack, you&apos;ll see raUSDC sitting there. Don&apos;t transfer or burn it outside Hubra. That token is your claim on the deposit, and moving it out of the app is how people lose funds.
+
+---
+
+## Your funds, your control
+
+Non-custodial is a word that gets abused in crypto. Here&apos;s what it actually means in Hubra&apos;s setup.
+
+You sign every deposit and withdrawal from your own wallet; we never hold your keys. The vault program itself has no admin function to withdraw user deposits, so the only thing it can do with your money is route it to a whitelisted lending protocol. Every rebalance is a Solana transaction anyone can read on-chain.
+
+If Hubra disappeared tomorrow, you would still be able to withdraw. That&apos;s the test that matters.
+
+---
+
+## Zero fees
+
+No performance fee, no management fee, no withdrawal fee. Everything the vault earns flows to depositors.
+
+We&apos;re upfront about the "for now." Running yield infrastructure isn&apos;t free, and eventually there will be a fee structure. When that happens, it&apos;ll be public well before it ships, and it&apos;ll be a plain performance fee rather than hidden spread or exit charges.
+
+---
+
+## What about risk?
+
+DeFi yield isn&apos;t risk-free, and we won&apos;t pretend it is. Keeping Earn to plain lending is a deliberate risk choice; lending is the most battle-tested form of on-chain yield. But real risks remain:
+
+- The vault contracts have been audited by Sec3 X-RAY and FYEO, but audits reduce risk, they don&apos;t eliminate it.
+- If Kamino or Jupiter suffered an exploit, funds deployed there at that moment would be at risk. The whitelist is a mitigation, not a guarantee.
+- Stablecoins themselves can depeg. That affects both your principal and your yield.
+- APY is variable. It can drop when lending demand softens.
+
+We&apos;ve picked protocols we trust and built on audited infrastructure. But don&apos;t deposit money into DeFi that you can&apos;t afford to have in DeFi. That&apos;s true for Hubra, and true for every yield product on Solana.
+
+---
+
+## FAQ
+
+### Which protocols does Hubra Earn use?
+Currently Kamino and Jupiter. Both are lending markets. The whitelist is designed so new protocols can be added when they clear our review.
+
+### Is Hubra Earn safe?
+The vault is built on audited infrastructure (Sec3 X-RAY and FYEO audits) and can only interact with whitelisted protocols. Hubra has no admin path to withdraw user funds. DeFi risk still exists: smart contract bugs, protocol exploits, and stablecoin depegs can happen. Only deposit what you&apos;re comfortable exposing to it.
+
+### Does Hubra charge fees?
+No. Zero performance, management, and withdrawal fees. 100% of vault yield flows to depositors.
+
+### Does Hubra Earn support SOL?
+Yes, through a different product: raSOL, our liquid staking token. The SOL strategy earns validator rewards, not lending yield. See our [liquid staking guide](/blog/liquid-staking-solana) for details.
+
+---
+
+See it live in the [Hubra app](https://hubra.app). For the broader thinking behind the product, [this post on why we built Hubra](/blog/introducing-hubra) covers it.

@@ -26,7 +26,7 @@
 
   /* Body configuration */
   body {
-    font-family: "Geist", "Inter", sans-serif;
+    font-family: var(--font-sans), "Geist", sans-serif;
     font-size: 14px;
     box-sizing: border-box;
     background-color: #0d0e21;
@@ -167,5 +167,77 @@
   }
   50% {
     background-position: 100% 50%;
+  }
+}
+
+/* ============================================
+   HeroHorus — feature cycle progress arc
+   ============================================ */
+@keyframes hero-feature-arc-fill {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-feature-arc {
+  animation: hero-feature-arc-fill 6000ms linear forwards;
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-feature-arc {
+    animation: none;
+  }
+}
+
+/* ============================================
+   HeroHorus — View Transitions (preview swap)
+   Cinematic cross-morph when the active feature changes.
+   ============================================ */
+::view-transition-old(hero-preview-body),
+::view-transition-new(hero-preview-body) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(hero-preview-body) {
+  animation-name: hero-preview-exit;
+}
+
+::view-transition-new(hero-preview-body) {
+  animation-name: hero-preview-enter;
+}
+
+@keyframes hero-preview-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+  }
+}
+
+@keyframes hero-preview-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+}
+
+/* Active sidebar icon leaps between tabs during feature change. */
+::view-transition-old(hero-active-icon),
+::view-transition-new(hero-active-icon) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(hero-preview-body),
+  ::view-transition-new(hero-preview-body),
+  ::view-transition-old(hero-active-icon),
+  ::view-transition-new(hero-active-icon) {
+    animation-duration: 0.01ms;
   }
 }

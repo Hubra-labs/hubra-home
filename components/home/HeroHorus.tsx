@@ -169,11 +169,11 @@ export const HeroHorus = (): JSX.Element => {
           <span>for everyone.</span>
         </h1>
 
-        <p className="mt-6 md:mt-8 max-w-xl text-[15px] md:text-lg text-white/55 leading-relaxed px-2 md:px-0 hidden md:block">
+        <p className="mt-6 md:mt-8 max-w-xl text-[15px] md:text-lg text-white/55 leading-relaxed px-2 md:px-0">
           Hubra has everything you need to navigate your crypto journey and earn - no PhD required.
         </p>
 
-        <div className="mt-8 md:mt-10 flex flex-col items-center gap-3 w-full sm:w-auto hidden md:flex">
+        <div className="mt-8 md:mt-10 flex flex-col items-center gap-3 w-full sm:w-auto">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-xs sm:max-w-none sm:w-auto">
             <a
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary text-black px-6 py-3.5 md:py-3 text-sm font-semibold shadow-[0_10px_30px_-10px_rgba(218,165,32,0.6)] hover:brightness-110 hover:shadow-[0_12px_36px_-10px_rgba(218,165,32,0.8)] transition-all"
@@ -193,8 +193,8 @@ export const HeroHorus = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-14 md:mt-28 w-full max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 items-stretch gap-6 md:gap-10">
+      <div className="relative z-10 mt-10 md:mt-28 w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-12 items-stretch gap-8 md:gap-10">
           <div className="md:col-span-3 flex justify-center md:items-center md:justify-center">
             <div className="text-center md:text-left">
               <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-white/40">
@@ -234,22 +234,22 @@ export const HeroHorus = (): JSX.Element => {
           </div>
 
           <div className="md:col-span-3 flex md:items-center">
-            <ul className="w-full grid grid-cols-5 md:flex md:flex-col">
+            <ul className="w-full flex md:flex-col overflow-x-auto md:overflow-visible">
               {FEATURES.map((feature) => {
                 const isActive = feature.key === active.key;
 
                 return (
-                  <li key={feature.key} className="flex md:flex-none">
+                  <li key={feature.key} className="flex-1 md:flex-none">
                     <button
                       aria-pressed={isActive}
-                      className={`group w-full flex flex-col md:flex-row items-center md:items-center justify-center md:justify-start gap-1.5 md:gap-3 px-1 md:px-4 py-2.5 rounded-xl transition-colors min-h-[52px] md:min-h-0 ${
-                        isActive ? "text-white bg-white/[0.05] md:bg-transparent" : "text-white/35 hover:text-white/75"
+                      className={`group w-full flex items-center justify-center md:justify-start gap-3 px-3 md:px-4 py-2.5 rounded-xl transition-colors ${
+                        isActive ? "text-white" : "text-white/35 hover:text-white/75"
                       }`}
                       type="button"
                       onClick={() => setActiveFeature(feature.key)}
                       onFocus={() => setActiveFeature(feature.key)}
                       onMouseEnter={() => setActiveFeature(feature.key)}>
-                      <span className="relative inline-flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-3">
+                      <span className="relative inline-flex items-center gap-3">
                         <span
                           aria-hidden
                           className={`hidden md:block absolute -left-3 top-1/2 -translate-y-1/2 h-5 w-[2px] rounded-full transition-all ${
@@ -257,9 +257,9 @@ export const HeroHorus = (): JSX.Element => {
                           }`}
                         />
                         <feature.Icon
-                          className={`h-[18px] w-[18px] md:h-5 md:w-5 shrink-0 transition-colors ${isActive ? "text-primary" : "text-white/40 group-hover:text-white/60"}`}
+                          className={`h-5 w-5 shrink-0 transition-colors ${isActive ? "text-primary" : "text-white/40 group-hover:text-white/60"}`}
                         />
-                        <span className="text-[11px] md:text-xl font-semibold tracking-[-0.01em]">{feature.label}</span>
+                        <span className="text-lg md:text-xl font-semibold tracking-[-0.01em]">{feature.label}</span>
                       </span>
                     </button>
                   </li>
@@ -270,7 +270,7 @@ export const HeroHorus = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-16 md:mt-28 w-full max-w-4xl">
+      <div className="relative z-10 mt-20 md:mt-28 w-full max-w-4xl">
         <div className="flex items-center justify-center gap-2 mb-5">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
           <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/40">Powering by the best of Solana</span>

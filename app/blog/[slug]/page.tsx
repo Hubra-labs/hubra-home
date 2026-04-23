@@ -213,7 +213,9 @@ export default async function BlogPost({ params }: BlogPostProps) {
               </div>
             )}
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white leading-tight" itemProp="headline">
+            <h1
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white leading-tight"
+              itemProp="headline">
               {post.title}
             </h1>
 

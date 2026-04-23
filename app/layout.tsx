@@ -13,7 +13,7 @@ import { CardNav, type CardNavItem } from "@/components/CardNav";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { StakeSolButton } from "@/components/stake-sol-button";
 import { ORGANIZATION_JSON_LD_STRING, WEBSITE_JSON_LD_STRING, WEB_APPLICATION_JSON_LD_STRING } from "@/lib/utils/structured-data";
-import { fontSans } from "@/config/fonts";
+import { fontSans, fontDisplay } from "@/config/fonts";
 const CryptoPanicNews = dynamic(() => import("@/components/news/CryptoPanicNews").then((mod) => ({ default: mod.CryptoPanicNews })));
 
 export const metadata: Metadata = {
@@ -125,12 +125,9 @@ const cardNavItems: CardNavItem[] = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning className={clsx(fontSans.variable)} lang="en">
+    <html suppressHydrationWarning className={clsx(fontSans.variable, fontDisplay.variable)} lang="en">
       <head>
         {/* Preconnect to external APIs for faster loading */}
-        <link href="https://fonts.googleapis.com" rel="preconnect" />
-        <link crossOrigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect" />
-        <link crossOrigin="anonymous" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
         <link href="https://public-api.birdeye.so" rel="preconnect" />
         <link href="https://stablecoins.llama.fi" rel="preconnect" />
         <link href="https://api.llama.fi" rel="preconnect" />

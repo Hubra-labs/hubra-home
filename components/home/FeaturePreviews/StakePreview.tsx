@@ -44,7 +44,7 @@ export const StakePreview = (): JSX.Element => {
         </span>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-col">
         <TokenIcon size={44} token="sol" />
         <div className="flex min-w-0 flex-col leading-tight">
           <div className="flex items-baseline gap-1.5">
@@ -59,7 +59,6 @@ export const StakePreview = (): JSX.Element => {
       </div>
 
       <div>
-        <div className={`mb-1.5 text-[10px] ${eyebrow}`}>Projected at 5.83% APY</div>
         <div className="grid grid-cols-4 gap-1.5">
           {PROJECTIONS.map((p) => (
             <div
