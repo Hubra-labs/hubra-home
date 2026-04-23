@@ -6,9 +6,8 @@ import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { track } from "@vercel/analytics";
 
-import MetallicPaint from "@/components/ui/MetallicPaint";
-
 import "./CardNav.css";
+import Image from "next/image";
 
 export type CardNavLink = {
   label: string;
@@ -258,29 +257,7 @@ export const CardNav = ({
 
           <NextLink className="logo-container" href="/" onClick={closeMenu}>
             <span aria-label={logoAlt} className="logo" role="img">
-              <MetallicPaint
-                angle={0}
-                blur={0.015}
-                brightness={2.3}
-                chromaticSpread={2}
-                contour={0.25}
-                contrast={0.75}
-                darkColor="#FFFFFF"
-                distortion={1}
-                fresnel={1}
-                imageSrc={logo}
-                lightColor="#FFFFFF"
-                liquid={0.75}
-                mouseAnimation={false}
-                noiseScale={0.5}
-                patternSharpness={1}
-                refraction={0.01}
-                scale={3}
-                seed={42}
-                speed={0.3}
-                tintColor="#FFD700"
-                waveAmplitude={1}
-              />
+              <Image alt={logoAlt} height={22} src={logo} width={22} />
             </span>
             {wordmark ? <span className="logo-wordmark">{wordmark}</span> : null}
           </NextLink>

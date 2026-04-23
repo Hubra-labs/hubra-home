@@ -100,7 +100,6 @@ const cardNavItems: CardNavItem[] = [
     links: [
       { label: "Tokens", href: "/tokens", ariaLabel: "Solana tokens" },
       { label: "DeFi", href: "/defi", ariaLabel: "DeFi analytics" },
-      { label: "Stats", href: "/stats", ariaLabel: "Platform stats" },
     ],
   },
   {
@@ -160,7 +159,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CardNav
               cta={{ label: "Launch App", href: "/link" }}
               items={cardNavItems}
-              logo="/logo.png"
+              logo="/image/logo.svg"
               logoAlt="Hubra"
               rightContent={<StakeSolButton />}
               wordmark="Hubra"
