@@ -8,27 +8,37 @@ export const ORGANIZATION_JSON_LD = {
   "name": "Hubra",
   "alternateName": "Hubra App",
   "description":
-    "Your Solana all-in-one portal to the decentralized world. Track tokens, Earn yields, DeFi protocols, and market analytics with CEX-grade experience.",
+    "Hubra is the Solana all-in-one portal — as simple as a CEX, with Horus, Hubra's AI financial agent, built in. Track tokens, stake SOL, explore DeFi, and analyze markets in one app. Tell Horus what you want — swap, stake, set alerts, rebalance — and it executes. You always sign.",
   "url": siteConfig.domain,
   "logo": `/logo.png`,
   "foundingDate": "2021",
   "areaServed": "Worldwide",
   "knowsAbout": [
+    "Solana all-in-one portal",
+    "Solana crypto aggregator",
+    "Horus — AI financial agent on Solana",
+    "Conversational AI for crypto and DeFi",
+    "Natural language trading and swaps",
+    "AI-powered DCA and limit orders",
+    "AI yield and portfolio rebalancing",
+    "AI price alerts and risk monitoring",
     "Solana blockchain",
     "Solana validators",
     "Solana staking",
+    "Liquid staking",
     "DeFi protocols",
     "DeFi yield farming",
+    "Perpetual futures on Solana",
     "Earning crypto",
+    "Wallet portfolio tracking",
     "Portfolio management",
-    "Wallet portfolio",
     "Cryptocurrency analytics",
     "Token tracking",
     "Market data",
     "Trading analytics",
     "Blockchain technology",
     "Validator performance",
-    "Liquid staking",
+    "CEX-grade user experience",
   ],
   "sameAs": ["https://twitter.com/hubraApp"],
   "contactPoint": {
@@ -51,12 +61,13 @@ export function getWebsiteJsonLd() {
     "@type": "WebSite",
     "name": "Hubra",
     "description":
-      "Your Solana all-in-one portal to the decentralized world. Track tokens, Earn yields, DeFi protocols, and market analytics with CEX-grade experience.",
+      "Hubra is the Solana all-in-one portal — track tokens, stake SOL, explore DeFi, and analyze markets with a CEX-grade experience. Horus, Hubra's AI financial agent, is built in: talk to it in plain English and it executes — swaps, staking, DCA, limit orders, alerts, transfers, rebalancing. You sign, always.",
     "url": siteConfig.domain,
     "about": {
       "@type": "Blockchain",
       "name": "Solana",
-      "description": "Solana blockchain ecosystem including validators, staking, DeFi protocols, and token analytics",
+      "description":
+        "Solana blockchain ecosystem — validators, staking, DeFi protocols, perpetuals, and token analytics — aggregated in one portal with Horus, Hubra's AI financial agent, built in.",
     },
     "potentialAction": {
       "@type": "SearchAction",
@@ -74,7 +85,8 @@ export const TOKEN_ANALYTICS_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "FinancialProduct",
   "name": "Token Analytics",
-  "description": "Cryptocurrency token analytics and trading data",
+  "description":
+    "Solana token analytics — real-time price, market data, volume, and holders. Ask Horus, Hubra's AI financial agent, for insights, risk checks, or to execute swaps, DCA, and limit orders directly from the chat.",
   "provider": {
     "@type": "Organization",
     "name": "Hubra",
@@ -95,20 +107,30 @@ export const WEB_APPLICATION_JSON_LD = {
   "name": "Hubra",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web",
+  "description":
+    "Hubra is the Solana all-in-one portal — tokens, DeFi, staking, and markets with CEX-grade simplicity, plus Horus, Hubra's AI financial agent. Tell Horus what you want in plain English and it executes: swaps via Jupiter, DCA, limit orders, staking, perpetuals, price alerts, transfers, and portfolio rebalancing. Non-custodial, gasless, user always signs.",
   "offers": {
     "@type": "Offer",
-    "name": "SOL Staking",
-    "description": "Stake SOL and earn ~6% APY with liquid staking. Gasless transactions, instant unstake, non-custodial.",
-    "url": "https://hubra.app/earn/stake",
+    "name": "Hubra Solana Portal + Horus AI Agent",
+    "description":
+      "Free access to Hubra's Solana aggregator — token tracking, DeFi analytics, liquid staking, perpetuals, and portfolio tools — plus Horus, Hubra's conversational AI financial agent. Non-custodial, gasless, user always signs.",
+    "url": "https://hubra.app",
     "price": "0",
     "priceCurrency": "USD",
   },
   "featureList": [
-    "Liquid staking with ~6% APY",
+    "All-in-one Solana portal: tokens, DeFi, staking, perpetuals, and markets",
+    "CEX-grade simplicity with self-custody",
+    "Liquid staking with instant unstake",
     "Gasless transactions",
-    "Instant unstake available",
-    "Non-custodial - your keys, always",
-    "One-click staking",
+    "Real-time token analytics and DeFi TVL rankings",
+    "Horus — conversational AI financial agent on Solana",
+    "Natural-language swaps with Jupiter route optimization",
+    "AI-driven DCA, limit orders, and portfolio rebalancing",
+    "AI price alerts (checked every 2 minutes, up to 10 active)",
+    "AI-assisted perpetual trading on SOL, BTC, and ETH",
+    "Memory across sessions — Horus remembers your goals and preferences",
+    "Non-custodial — your keys, always. Every action requires your signature.",
   ],
 } as const;
 
@@ -244,7 +266,7 @@ export function getFinancialProductJsonLd(token: {
 }) {
   const enhancedDescription =
     token.description ||
-    `${token.name} (${token.symbol}) is a cryptocurrency token on the Solana blockchain. Track real-time price, market capitalization, trading volume, price changes, holder count, and comprehensive trading analytics.`;
+    `${token.name} (${token.symbol}) is a cryptocurrency token on the Solana blockchain. Track real-time price, market cap, volume, price changes, and holders on Hubra — the Solana all-in-one portal. Ask Horus, Hubra's AI financial agent, to analyze ${token.symbol}, set a price alert, swap into or out of it, or schedule a DCA.`;
 
   const product: any = {
     "@context": "https://schema.org",
